@@ -1,4 +1,4 @@
-package umc.spring.study.dto;
+package umc.spring.study.dto.memberDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

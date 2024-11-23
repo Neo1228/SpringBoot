@@ -1,4 +1,4 @@
-package umc.spring.study.dto;
+package umc.spring.study.dto.memberDTO;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

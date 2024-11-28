@@ -36,3 +36,4 @@ public class MemberPrefer extends BaseEntity {
         this.foodCategory = foodCategory;
     }
 }
+}

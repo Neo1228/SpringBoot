@@ -21,6 +21,7 @@ import java.util.List;
 @Getter
 @DynamicInsert
 @DynamicUpdate
+=======
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -56,6 +57,9 @@ public class Member extends BaseEntity {
     private String email;
 
     @ColumnDefault("0")
+    @Column(nullable = false, length = 50)
+    private String email;
+
     private Integer point;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)

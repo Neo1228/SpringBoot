@@ -8,6 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import umc.spring.study.domain.Review;
 import umc.spring.study.domain.Store;
 import umc.spring.study.repository.reviewRepository.ReviewRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import umc.spring.study.domain.Store;
 import umc.spring.study.repository.storeRepository.StoreRepository;
 
 import java.util.List;
@@ -44,5 +47,4 @@ public class StoreQueryServiceImpl implements StoreQueryService {
         Page<Review> StorePage = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
         return StorePage;
     }
-
 }

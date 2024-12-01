@@ -42,6 +42,7 @@ public class QReview extends EntityPathBase<Review> {
     public final QStore store;
 
     public final StringPath title = createString("title");
+    public final NumberPath<Long> title = createNumber("title", Long.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;

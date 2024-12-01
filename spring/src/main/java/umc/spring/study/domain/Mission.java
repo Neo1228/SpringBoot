@@ -3,6 +3,7 @@ package umc.spring.study.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import umc.spring.study.domain.common.BaseEntity;
+import umc.spring.study.domain.enums.MissionStatus;
 import umc.spring.study.domain.mapping.MemberMission;
 
 import java.time.LocalDate;
@@ -32,4 +33,14 @@ public class Mission extends BaseEntity {
 
     @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
     private List<MemberMission> memberMissionList = new ArrayList<>();
+
+    @Enumerated(EnumType.STRING)
+    private MissionStatus status; // 추가: 상태 필드
+
+    // 상태 변경 메서드
+    public void completeMission() {
+        if (this.status != MissionStatus.COMPLETE) {
+            this.status = MissionStatus.COMPLETE;
+        }
+    }
 }

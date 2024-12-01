@@ -1,11 +1,15 @@
 package umc.spring.study.converter;
 
+import org.springframework.data.domain.Page;
 import umc.spring.study.domain.Member;
 import umc.spring.study.domain.Mission;
 import umc.spring.study.domain.enums.MissionStatus;
 import umc.spring.study.domain.mapping.MemberMission;
 import umc.spring.study.dto.userMissionDTO.UserMissionRequestDTO;
 import umc.spring.study.dto.userMissionDTO.UserMissionResponseDTO;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserMissionConverter {
 
@@ -25,4 +29,16 @@ public class UserMissionConverter {
                 .missionSpec(memberMission.getMission().getMissionSpec())
                 .build();
     }
+
+    public static UserMissionResponseDTO.UserMissionListDTO toUserMissionListDTO(Page<MemberMission> missionPage) {
+        List<UserMissionResponseDTO> missions = missionPage.getContent().stream()
+                .map(UserMissionConverter::toResponseDto)
+                .collect(Collectors.toList());
+        return UserMissionResponseDTO.UserMissionListDTO.builder()
+                .missions(missions)
+                .totalPages(missionPage.getTotalPages())
+                .currentPage(missionPage.getNumber())
+                .build();
+    }
+
 }

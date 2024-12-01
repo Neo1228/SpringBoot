@@ -1,9 +1,13 @@
 package umc.spring.study.converter;
 
+import org.springframework.data.domain.Page;
 import umc.spring.study.domain.Mission;
 import umc.spring.study.domain.Store;
 import umc.spring.study.dto.missionDTO.MissionRequestDTO;
 import umc.spring.study.dto.missionDTO.MissionResponseDTO;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MissionConverter {
 
@@ -25,4 +29,16 @@ public class MissionConverter {
                 .storeName(mission.getStore().getName())
                 .build();
     }
+
+    public static MissionResponseDTO.MissionListDTO toMissionListDTO(Page<Mission> missionPage) {
+        List<MissionResponseDTO> missions = missionPage.getContent().stream()
+                .map(MissionConverter::toResponseDto)
+                .collect(Collectors.toList());
+        return MissionResponseDTO.MissionListDTO.builder()
+                .missions(missions)
+                .totalPages(missionPage.getTotalPages())
+                .currentPage(missionPage.getNumber())
+                .build();
+    }
+
 }

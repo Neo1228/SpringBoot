@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -17,4 +18,15 @@ public class MissionResponseDTO {
     private LocalDate deadLine;
     private String missionSpec;
     private String storeName; // 미션이 속한 가게의 이름
+
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class MissionListDTO {
+        private List<MissionResponseDTO> missions;
+        private int totalPages;
+        private int currentPage;
+    }
+
 }

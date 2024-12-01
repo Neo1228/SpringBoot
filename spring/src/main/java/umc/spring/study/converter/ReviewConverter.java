@@ -1,10 +1,14 @@
 package umc.spring.study.converter;
 
+import org.springframework.data.domain.Page;
 import umc.spring.study.domain.Member;
 import umc.spring.study.domain.Review;
 import umc.spring.study.domain.Store;
 import umc.spring.study.dto.reviewDTO.ReviewRequestDTO;
 import umc.spring.study.dto.reviewDTO.ReviewResponseDTO;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ReviewConverter {
 
@@ -26,4 +30,16 @@ public class ReviewConverter {
                 .storeName(review.getMember().getAddress()) // 가게의 주소를 응답 데이터로
                 .build();
     }
+
+    public static ReviewResponseDTO.ReviewListDTO toReviewListDTO(Page<Review> reviewPage) {
+        List<ReviewResponseDTO> reviews = reviewPage.getContent().stream()
+                .map(ReviewConverter::toResponseDto)
+                .collect(Collectors.toList());
+        return ReviewResponseDTO.ReviewListDTO.builder()
+                .reviews(reviews)
+                .totalPages(reviewPage.getTotalPages())
+                .currentPage(reviewPage.getNumber())
+                .build();
+    }
+
 }

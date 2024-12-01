@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,4 +18,14 @@ public class ReviewResponseDTO {
     private Float score;
     private String memberName; // 리뷰 작성자의 이름
     private String storeName;  // 가게 이름
+
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public class ReviewListDTO {
+        private List<ReviewResponseDTO> reviews;
+        private int totalPages;
+        private int currentPage;
+    }
 }

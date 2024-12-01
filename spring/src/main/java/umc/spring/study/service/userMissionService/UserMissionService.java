@@ -1,5 +1,10 @@
 package umc.spring.study.service.userMissionService;
 
+import umc.spring.study.dto.userMissionDTO.UserMissionRequestDTO;
+import umc.spring.study.dto.userMissionDTO.UserMissionResponseDTO;
+
+public interface UserMissionService {
+    UserMissionResponseDTO addUserMission(UserMissionRequestDTO requestDto);
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

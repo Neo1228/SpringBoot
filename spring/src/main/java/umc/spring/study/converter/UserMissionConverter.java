@@ -40,5 +40,4 @@ public class UserMissionConverter {
                 .currentPage(missionPage.getNumber())
                 .build();
     }
-
 }

@@ -25,6 +25,19 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @Validated
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import umc.spring.study.apiPayload.ApiResponse;
+import umc.spring.study.dto.storeDTO.StoreRequestDTO;
+import umc.spring.study.dto.storeDTO.StoreResponseDTO;
+import umc.spring.study.service.storeService.StoreCommandService;
+
+@RestController
+@RequiredArgsConstructor
 @RequestMapping("/stores")
 public class StoreRestController {
 
@@ -64,4 +77,4 @@ public class StoreRestController {
     }
 
 }
-        
+}

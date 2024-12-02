@@ -41,5 +41,4 @@ public class ReviewConverter {
                 .currentPage(reviewPage.getNumber())
                 .build();
     }
-
 }

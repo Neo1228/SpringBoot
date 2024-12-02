@@ -26,5 +26,4 @@ public class UserMissionResponseDTO {
         private int totalPages;
         private int currentPage;
     }
-
 }

@@ -3,6 +3,7 @@ package umc.spring.study.converter;
 import org.springframework.data.domain.Page;
 import umc.spring.study.domain.Region;
 import umc.spring.study.domain.Review;
+import umc.spring.study.domain.Region;
 import umc.spring.study.domain.Store;
 import umc.spring.study.dto.storeDTO.StoreRequestDTO;
 import umc.spring.study.dto.storeDTO.StoreResponseDTO;
